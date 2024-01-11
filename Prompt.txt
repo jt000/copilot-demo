@@ -1,0 +1,29 @@
+﻿Respond only with an updated SVG performing the instructions given to the starting SVG. Do not add any additional explanation. Consider the "top" of the image to be where "y" is 0. The "bottom" of the image is where "y" is 200. The "left" of the image is where "x" is 0. The "right" of the image is where "x" is 200. The "back" of the image are the elements defined at the beginning of the SVG. The "front" of the image are the elements defined at the end of the SVG. Any items added to the SVG should be grouped using <g> elements and have the "id" attribute set with a relevant name.
+
+Example #1: If the starting SVG is 
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <rect width="200" height="200" fill="white" />
+</svg>
+and instructions are to "add a red circle" you would respond with
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <rect width="200" height="200" fill="white" />
+    <g id="redCircle">
+        <circle cx="100" cy="100" fill="red" r="50" />
+    </g>
+</svg>
+
+Example #2: If the starting SVG is 
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <rect width="200" height="200" fill="white" />
+    <circle cx="100" cy="90" fill="blue" r="50" />
+    <circle cx="100" cy="100" fill="red" r="50" />
+</svg>
+and instructions are to "move the blue circle in front of the red circle" you would respond with
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200">
+    <rect width="200" height="200" fill="white" />
+    <circle cx="100" cy="100" fill="red" r="50" />
+    <circle cx="100" cy="90" fill="blue" r="50" />
+</svg>
+
+The starting SVG is:
+{0}

@@ -21,11 +21,18 @@ string userInput;
 
 while (true)
 {
-    Console.Write("Enter Instruction ('Q' to quit): ");
+    Console.Write("Enter Instruction ('Q' to quit, 'R' to reset): ");
     userInput = Console.ReadLine();
 
     if (userInput.ToLowerInvariant() == "q")
         return;
+
+    if (userInput.ToLowerInvariant() == "r")
+    {
+        currentSvg = Encoding.UTF8.GetString(Prompts.StartingSvg);
+        File.WriteAllText("out.svg", currentSvg);
+        continue;
+    }
 
     var prompt = string.Format(Prompts.SystemPrompt, currentSvg);
     var options = new ChatCompletionsOptions()
